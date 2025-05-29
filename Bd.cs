@@ -52,7 +52,7 @@ namespace ComputerClubApp
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
 
-        // Навигационные свойства (опционально)
+        // Навигационные свойства 
         public Client Client { get; set; }
         public Session Session { get; set; }
     }
