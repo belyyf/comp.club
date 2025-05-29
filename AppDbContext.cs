@@ -9,7 +9,7 @@ namespace ComputerClubApp.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("Host=localhost;Database=compclub;Username=postgres;Password=12345");
+            optionsBuilder.UseNpgsql("Host=localhost;Database=compclub;Username=postgres;Password=1234");
         }
     }
 }
