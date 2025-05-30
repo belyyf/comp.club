@@ -184,13 +184,13 @@ namespace ComputerClubApp
             {
                 case "1":
                     Console.Write("Имя клиента: ");
-                    string name = Console.ReadLine();
-                    if (db.Clients.Any(c => c.Name == name))
+                    string Name = Console.ReadLine();
+                    if (db.Clients.Any(c => c.Name == Name))
                     {
                         Console.WriteLine("Клиент уже существует.");
                         return;
                     }
-                    db.Clients.Add(new Client { Name = name });
+                    db.Clients.Add(new Client { Name = Name });
                     db.SaveChanges();
                     Console.WriteLine("Клиент добавлен.");
                     break;
