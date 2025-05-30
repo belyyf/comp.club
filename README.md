@@ -185,22 +185,27 @@
 ---------------------------
 сама програма:
 
-![image](https://github.com/user-attachments/assets/c6266935-53fa-462a-8112-2b3e8a1fb2a6)
+![image](https://github.com/user-attachments/assets/9fbc271c-ecde-4acf-972d-d8f20a91147b)
 
 добавление клиентов:
 
-![image](https://github.com/user-attachments/assets/86091a51-64d5-4c63-9f3c-69f227f0a0ec)
-
-назначение клиента на сеанс:
-
-![image](https://github.com/user-attachments/assets/096abe79-d645-4142-a619-0267beaeaab6)
+![image](https://github.com/user-attachments/assets/c1d01b23-b832-4f15-b094-4275b964efee)
 
 нельзя использовать одно и тоже имя:
 
-![image](https://github.com/user-attachments/assets/a54b3a2c-3291-4259-ab06-f1e04dff19df)
+![image](https://github.com/user-attachments/assets/394c4b2c-5efc-4dd0-95c2-f1ae0d3b8961)
 
 удаление клиентов:
 
-![image](https://github.com/user-attachments/assets/8792edce-4562-42ca-8d20-d12f7ccb7c01)
+![image](https://github.com/user-attachments/assets/bdbd6fdd-3c85-467f-9fc9-671b476f096d)
+
+просмтр компьютеров:
+
+![image](https://github.com/user-attachments/assets/b5458320-904f-4819-a8e2-69872a99cd64)
+
+назначить клиента к компьютеру и расчитать стоимость:
+
+![image](https://github.com/user-attachments/assets/621e601b-1dfd-4880-af02-3899746178cf)
+
 
 
