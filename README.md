@@ -185,21 +185,22 @@
 ---------------------------
 сама програма:
 
-![Снимок экрана 2025-05-30 091429](https://github.com/user-attachments/assets/10c59fb1-47d0-4f61-b1f4-3663457ad4da)
+![image](https://github.com/user-attachments/assets/c6266935-53fa-462a-8112-2b3e8a1fb2a6)
 
-меню(Админы):
+добавление клиентов:
 
-![image](https://github.com/user-attachments/assets/e2094f9a-6ba4-430b-9bb9-7320044a8cb9)
+![image](https://github.com/user-attachments/assets/86091a51-64d5-4c63-9f3c-69f227f0a0ec)
 
-добавление админов:
+назначение клиента на сеанс:
 
-![image](https://github.com/user-attachments/assets/b2f877de-6fe3-4f68-a961-be31a1291a7b)
+![image](https://github.com/user-attachments/assets/096abe79-d645-4142-a619-0267beaeaab6)
 
 нельзя использовать одно и тоже имя:
 
-![image](https://github.com/user-attachments/assets/0605a54a-915d-4a42-a499-bfb687cc3cb8)
+![image](https://github.com/user-attachments/assets/a54b3a2c-3291-4259-ab06-f1e04dff19df)
 
-удаление админов:
+удаление клиентов:
 
-![image](https://github.com/user-attachments/assets/fa87c12c-2d7f-4367-8194-3612d06eccfe)
+![image](https://github.com/user-attachments/assets/8792edce-4562-42ca-8d20-d12f7ccb7c01)
+
 
