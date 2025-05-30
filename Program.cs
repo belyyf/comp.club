@@ -7,11 +7,25 @@ class Client
     public int Id { get; set; }
     public string Name { get; set; }
     public string ComputerName { get; set; } = null;
+    public decimal? Payment { get; set; }
+}
+
+class Computer
+{
+    public string Name { get; set; }
+    public decimal PricePerHour { get; set; }
 }
 
 class Program
 {
     static List<Client> clients = new List<Client>();
+    static List<Computer> computers = new List<Computer>
+    {
+        new Computer { Name = "ПК-1", PricePerHour = 150 },
+        new Computer { Name = "ПК-2", PricePerHour = 200 },
+        new Computer { Name = "ПК-3", PricePerHour = 180 }
+    };
+
     static int nextId = 1;
 
     static void Main()
@@ -23,33 +37,22 @@ class Program
             Console.WriteLine("2. Просмотреть клиентов");
             Console.WriteLine("3. Обновить имя клиента");
             Console.WriteLine("4. Удалить клиента");
-            Console.WriteLine("5. Назначить клиента на сеанс к компьютеру");
-            Console.WriteLine("6. Выход");
+            Console.WriteLine("5. Назначить клиента к компьютеру и рассчитать платёж");
+            Console.WriteLine("6. Просмотреть компьютеры");
+            Console.WriteLine("7. Выход");
             Console.Write("Выберите пункт: ");
             string input = Console.ReadLine();
 
             switch (input)
             {
-                case "1":
-                    AddClient();
-                    break;
-                case "2":
-                    ViewClients();
-                    break;
-                case "3":
-                    UpdateClient();
-                    break;
-                case "4":
-                    DeleteClient();
-                    break;
-                case "5":
-                    AssignComputer();
-                    break;
-                case "6":
-                    return;
-                default:
-                    Console.WriteLine("Неверный ввод.");
-                    break;
+                case "1": AddClient(); break;
+                case "2": ViewClients(); break;
+                case "3": UpdateClient(); break;
+                case "4": DeleteClient(); break;
+                case "5": AssignComputer(); break;
+                case "6": ViewComputers(); break;
+                case "7": return;
+                default: Console.WriteLine("Неверный ввод."); break;
             }
         }
     }
@@ -85,14 +88,15 @@ class Program
 
         foreach (var c in clients)
         {
-            string comp = c.ComputerName != null ? $" | Назначен к: {c.ComputerName}" : " | Не назначен к компьютеру";
-            Console.WriteLine($"{c.Id}: {c.Name}{comp}");
+            string comp = c.ComputerName != null ? $" | Компьютер: {c.ComputerName}" : " | Без компьютера";
+            string pay = c.Payment != null ? $" | Платёж: {c.Payment}₽" : "";
+            Console.WriteLine($"{c.Id}: {c.Name}{comp}{pay}");
         }
     }
 
     static void UpdateClient()
     {
-        Console.Write("Введите ID клиента для изменения имени: ");
+        Console.Write("Введите ID клиента: ");
         if (int.TryParse(Console.ReadLine(), out int id))
         {
             var client = clients.FirstOrDefault(c => c.Id == id);
@@ -150,23 +154,46 @@ class Program
         string name = Console.ReadLine().Trim();
 
         var client = clients.FirstOrDefault(c => c.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
-        if (client != null)
-        {
-            Console.Write("Введите имя компьютера: ");
-            string compName = Console.ReadLine().Trim();
-
-            if (string.IsNullOrWhiteSpace(compName))
-            {
-                Console.WriteLine("Имя компьютера не может быть пустым.");
-                return;
-            }
-
-            client.ComputerName = compName;
-            Console.WriteLine($"Клиент {client.Name} назначен на компьютер {compName}.");
-        }
-        else
+        if (client == null)
         {
             Console.WriteLine("Клиент не найден.");
+            return;
+        }
+
+        Console.WriteLine("Доступные компьютеры:");
+        for (int i = 0; i < computers.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {computers[i].Name} — {computers[i].PricePerHour}₽/час");
+        }
+
+        Console.Write("Выберите номер компьютера: ");
+        if (!int.TryParse(Console.ReadLine(), out int compIndex) || compIndex < 1 || compIndex > computers.Count)
+        {
+            Console.WriteLine("Неверный выбор.");
+            return;
+        }
+
+        var selectedComputer = computers[compIndex - 1];
+
+        Console.Write("Сколько часов будет использоваться компьютер? ");
+        if (!decimal.TryParse(Console.ReadLine(), out decimal hours) || hours <= 0)
+        {
+            Console.WriteLine("Некорректное количество часов.");
+            return;
+        }
+
+        client.ComputerName = selectedComputer.Name;
+        client.Payment = selectedComputer.PricePerHour * hours;
+
+        Console.WriteLine($"Клиент {client.Name} назначен к компьютеру {selectedComputer.Name}. Платёж: {client.Payment}₽");
+    }
+
+    static void ViewComputers()
+    {
+        Console.WriteLine("Список компьютеров:");
+        foreach (var c in computers)
+        {
+            Console.WriteLine($"• {c.Name} — {c.PricePerHour}₽/час");
         }
     }
 }
